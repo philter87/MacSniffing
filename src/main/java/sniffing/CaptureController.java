@@ -17,10 +17,8 @@ public class CaptureController {
     private Process p;
     private boolean shouldWeRerun=true;
     private int lineCount=500;
-    private long expire_hour=24;
     private String[] arguments = new String[]{"tshark", "-i", "wlan1", "-I", "-c", ""+lineCount,"-T", "fields","-e","frame.time_epoch","-e", "wlan.sa", "-e", "wlan.fc.type_subtype","-Y","wlan.sa and wlan.fc.type_subtype == 4"};
     private Thread thread;
-    private LocalDate today = LocalDate.now();
 
     @RequestMapping("/start")
     public String start() throws IOException, InterruptedException {
