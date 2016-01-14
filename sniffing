@@ -1,0 +1,18 @@
+#!/bin/bash
+# Sniffing
+#
+# description: Sniffing server is automatically starting up
+
+case $1 in
+    start)
+        /bin/bash /home/pi/sniffing-start.sh
+    ;;
+    stop)
+        /bin/bash /home/pi/sniffing-stop.sh
+    ;;
+    restart)
+        /bin/bash /home/pi/sniffing-stop.sh
+        /bin/bash /home/pi/sniffing-start.sh
+    ;;
+esac
+exit 0
