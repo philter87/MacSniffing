@@ -5,13 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.*;
-import java.net.NetworkInterface;
-import java.net.SocketException;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.*;
-
-import java.util.stream.Collectors;
 
 @RestController
 public class CaptureController {
@@ -54,18 +48,18 @@ public class CaptureController {
             System.out.println("Process started:"+System.currentTimeMillis());
             p.waitFor();
             System.out.println("Time:"+System.currentTimeMillis()+", "+lineCount+" packets collected");
-            StringBuffer output = getProcessOutput();
+            handleOutput();
         }
     }
 
-    private StringBuffer getProcessOutput() throws IOException {
+    private void handleOutput() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-        StringBuffer output = new StringBuffer();
-        String line ="";
-        while((line = reader.readLine()) != null){
+        String line = reader.readLine();
+        while(line != null){
             System.out.println(line);
+            String[] words=getWords(line);
+            line = reader.readLine();
         }
-        return output;
     }
     private String[] getWords(String line){
         return line.split("\\t");
