@@ -5,6 +5,7 @@
  * @author Bojan Djuricic (@Toorshia)
  **/
 
+
 JustGage = function(config) {
 
   var obj = this;

@@ -24,10 +24,17 @@ function myFunction(arr) {
     }
     document.getElementById("count").innerHTML = out;
 }
-
+function httpGet(theUrl) {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
 
 function init() {
-    var value = 67;
+    var maxVisitor=100;
+    var visitorCount=httpGet("http://192.168.43.6:8080/count");
+    var value = parseInt(visitorCount/500);
     var maxValue = 100;
 
     /*var opts = {
