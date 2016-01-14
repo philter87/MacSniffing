@@ -18,9 +18,9 @@ public class MyConfiguration {
             public void run() {
                 System.out.println("Thread to start sniffing is created");
                 try {
-                    Thread.sleep(30*1000);
+                    Thread.sleep(15*1000);
                     System.out.println("Half the waiting is done");
-                    Thread.sleep(30*1000);
+                    Thread.sleep(15*1000);
                     RestTemplate template = new RestTemplate();
                     List<String> ips=NetworkInterface.getByName("wlan0").getInterfaceAddresses().stream().map(address -> address.getAddress().getHostAddress()).collect(Collectors.toList());
                     template.postForLocation("http://45.55.144.129:8080/ip",ips);
