@@ -22,12 +22,8 @@ public class MyConfiguration {
                     System.out.println("Half the waiting is done");
                     Thread.sleep(15*1000);
                     RestTemplate template = new RestTemplate();
-                    List<String> ips=NetworkInterface.getByName("wlan0").getInterfaceAddresses().stream().map(address -> address.getAddress().getHostAddress()).collect(Collectors.toList());
-                    template.postForLocation("http://45.55.144.129:8080/ip",ips);
                     template.getForObject("http://localhost:8080/start",String.class);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (SocketException e) {
                     e.printStackTrace();
                 }
             }
