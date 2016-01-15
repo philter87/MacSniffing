@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Canteen Monitor</title>
+		<script src="script/gauge.min.js"></script>
+		<script src="script/cantin.js"></script>
+		<script src="script/justgage.js"></script>
+		<script src="script/raphael-2.1.4.min.js"></script>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="script/bootstrap/bootstrap.min.css">
+		<script src="script/bootstrap/jquery.min.js"></script>
+		<script src="script/bootstrap/bootstrap.min.js"></script>
+	</head>
+
+	<body onload="init()">
+	<div class="container">
+		<nav class="navbar navbar-inverse" style="background-color: #005284">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" style="color:white;" href="#">Nordea</a>
+				</div>
+			</div>
+		</nav>
+
+		<div class="jumbotron" style="margin: auto">
+			<h1>Canteen Monitor</h1>
+			<h3>Should I eat now?</h3>
+		</div>
+		<!--<canvas id="gaugeCanvas" width="400" height="200"></canvas>-->
+		<div class="row">
+			<div id="gaugeDiv" style="height:300px; margin:auto;"></div>
+		</div>
+		<div class="row">
+			<div id="count"></div>
+		</div>
+		<div class="row">
+			<button type="button" class="btn btn-primary center-block" onclick="history.go(0)">Update</button>
+		</div>
+
+		<!--
+		<div class="row">
+			<img src="thumbsUp.png" width="40" height="38" style="display: inline">
+		</div>
+		<div class="row">
+			<h1>+1</h1>
+		</div>
+		<div class="row">
+			<img src="thumbsDown.png" width="40" height="38">
+		</div>
+		-->
+	</div>
+	</body>
+</html>

@@ -10,6 +10,7 @@ import java.util.*;
 
 @CrossOrigin()
 @RestController
+@CrossOrigin(origins = "http://localhost:9000")
 public class CaptureController {
     private Process p;
     private boolean shouldWeRerun=true;
