@@ -33,8 +33,15 @@ function httpGet(theUrl) {
 
 function init() {
     var maxVisitor=100;
-    var visitorCount=httpGet("http://192.168.43.6:8080/count");
-    var value = parseInt(visitorCount/500);
+    var visitorCount=httpGet("http://172.20.10.3:8080/count");
+    var value = 90;
+    //if(visitorCount.error !== null){
+    //    console.log(visitorCount);
+    //    visitorCount=50;
+    //}
+    //console.log(visitorCount);
+    //var value = parseInt(visitorCount/500);
+    //console.log(value);
     var maxValue = 100;
 
     /*var opts = {
@@ -67,8 +74,8 @@ function init() {
     title: "Visitors"
   });
 
-    var countField = document.getElementById('count');
-    countField.innerHTML = value + "/" + maxValue;
+    //var countField = document.getElementById('count');
+    //countField.innerHTML = value + "/" + maxValue;
 
-    call_address();
+    //call_address();
 }
