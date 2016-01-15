@@ -26,15 +26,28 @@ function myFunction(arr) {
 }
 function httpGet(theUrl) {
     var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange=function() {
+        if (xmlHttp.readyState === 4){   //if complete
+            if(xmlHttp.status === 200){  //check if "OK" (200)
+                //success
+                console.log("sucess");
+            } else {
+                //error
+                console.log("error");
+            }
+        }
+    }
     xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
     xmlHttp.send( null );
     return xmlHttp.responseText;
 }
 
 function init() {
-    var maxVisitor=100;
+    var maxVisitor=200;
     var visitorCount=httpGet("http://172.20.10.3:8080/count");
-    var value = 90;
+    console.log(visitorCount);
+    var value = visitorCount/maxVisitor*100;
+    console.log(value);
     //if(visitorCount.error !== null){
     //    console.log(visitorCount);
     //    visitorCount=50;
@@ -71,11 +84,10 @@ function init() {
     value: value,
     min: 0,
     max: maxValue,
-    title: "Visitors"
+    title: "Capacity"
   });
 
     //var countField = document.getElementById('count');
     //countField.innerHTML = value + "/" + maxValue;
-
     //call_address();
 }
